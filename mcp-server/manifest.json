@@ -1,0 +1,36 @@
+{
+  "manifest_version": "0.3",
+  "name": "bug-tracker",
+  "version": "1.0.0",
+  "description": "Logs bugs into the team's internal bug tracker via the log_bug tool.",
+  "author": {
+    "name": "ViTrox"
+  },
+  "server": {
+    "type": "node",
+    "entry_point": "index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/index.js"],
+      "env": {
+        "BUG_TRACKER_URL": "${user_config.bug_tracker_url}",
+        "AGENT_TOKEN": "${user_config.agent_token}"
+      }
+    }
+  },
+  "user_config": {
+    "bug_tracker_url": {
+      "type": "string",
+      "title": "Bug Tracker URL",
+      "description": "The address of the hosted bug tracker (e.g. https://your-site.netlify.app).",
+      "required": true
+    },
+    "agent_token": {
+      "type": "string",
+      "title": "Agent Token",
+      "description": "Required. Must match the AGENT_TOKEN environment variable set on the deployment.",
+      "sensitive": true,
+      "required": true
+    }
+  }
+}

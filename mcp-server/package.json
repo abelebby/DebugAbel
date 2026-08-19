@@ -1,0 +1,15 @@
+{
+  "name": "bug-tracker-mcp",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "MCP server exposing a single log_bug tool that files bugs into the local Bug Tracker",
+  "bin": { "bug-tracker-mcp": "index.js" },
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0"
+  }
+}
