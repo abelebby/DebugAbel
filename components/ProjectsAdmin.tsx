@@ -29,7 +29,8 @@ export default function ProjectsAdmin() {
     });
     if (!response.ok) {
       const data = await response.json().catch(() => ({}));
-      setError(data.error ?? "Something went wrong.");
+      // TEMPORARY DIAGNOSTIC - show the debug field too, remove once fixed.
+      setError(data.debug ? `${data.error} — ${data.debug}` : data.error ?? "Something went wrong.");
       return false;
     }
     await load();
